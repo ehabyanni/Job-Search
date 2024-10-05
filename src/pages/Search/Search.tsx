@@ -23,35 +23,26 @@ function Search() {
 
     const pathname = location.pathname;
 
-
-    const [dataReset, setDataReset] = useState<boolean>(false);
-
     useEffect(() => {
         // Fetch search results
         if (query != '') {
             dispatch(fetchSearchResults(query));
-            setDataReset(false);
-        }
-
-        if (pathname === '/jobs/search') {
+        } else {
             // Reset the job search results in the Redux store
             dispatch(resetJobSearchResults()); // Update the job search results in the Redux store
-            setDataReset(true);
         }
 
-    }, [dispatch, query]);
+    }, [dispatch, query, pathname]);
 
     return (
         <div id="searchContainer">
             <div id="jobCardOuterContainer">
                 <div id="jobCardHeader">
-                    
-                    {jobs.length === 0 && status === 'succeeded' && dataReset === false && <h1 style={{ fontSize: "18px" }}>"{query}"{" jobs "}{jobs.length > 0 ? `(${jobs.length})` : ''}</h1>}
-                </div>
+                    {query != '' && <h1 style={{ fontSize: "18px" }}>"{query}"{" jobs "}{jobs.length > 0 ? `(${jobs.length})` : ''}</h1>}                </div>
                 <div id="jobCardContainer">
                     {status === 'loading' && <p>Loading search results...</p>}
-                    {jobs.length === 0 && status === 'succeeded' && dataReset === false && <p>No results found for "{query}".</p>}
-                    {jobs.length === 0 && status === 'succeeded' && dataReset === true && <p>Start new search...</p>}
+                    {jobs.length === 0 && status === 'succeeded' && query != '' && <p>No results found for "{query}".</p>}
+                    {jobs.length === 0 && status === 'idle' && <p>Start new search...</p>}
                     {jobs.map((job: jobDetailsType) => (
                         <JobCard key={job.id} job={job} />
                     ))}
