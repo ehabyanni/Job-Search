@@ -4,6 +4,7 @@
   align-items: center;
   padding: 20px 0px;
   background-color: #fff;
+  position: relative;
   #inputSearch {
     border-radius: 5px;
     border: 1px solid #ccc;
@@ -15,6 +16,28 @@
       &:focus {
         outline: none !important;
         border: none !important;
+      }
+    }
+  }
+  #suggestions {
+    position: absolute;
+    width: 41%;
+    margin: auto;
+    top: 80%;
+    left: 0;
+    right: 0;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    max-height: 200px;
+    overflow-y: auto;
+    .suggestion-item {
+      padding: 10px;
+      cursor: pointer;
+      &:hover {
+        background-color: #f2f2f2;
       }
     }
   }
