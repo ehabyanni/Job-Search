@@ -9,7 +9,7 @@ import History from './pages/History';
 import Home from './pages/Home/Home';
 import SearchInput from './components/SearchInput/SearchInput';
 import JobDetails from './pages/JobDetails';
-import Search from './pages/Search';
+import Search from './pages/Search/Search';
 
 function App() {
   return (
