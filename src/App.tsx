@@ -17,8 +17,8 @@ function App() {
       <Navbar />
       <SearchInput />
       <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/search" element={<Search />} />
+            <Route path="/jobs" element={<Home />} />
+            <Route path="/jobs/search" element={<Search />} />
             <Route path="/history" element={<History />} />
             <Route path="/jobs/:id" element={<JobDetails />} />
             {/* <Route path="*" element={<NoMatch />} /> */}

@@ -1,12 +1,12 @@
 'use client'
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import { debounce } from 'lodash';
 import { useSelector } from 'react-redux';
 import { jobDetailsType } from '../../models/jobDetailsType';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import './style.scss';
-import { useNavigate, useSearchParams } from 'react-router-dom';
+import { useLocation, useNavigate, useSearchParams } from 'react-router-dom';
 
 function Search() {
     const [query, setQuery] = useState('');
@@ -15,6 +15,17 @@ function Search() {
 
     const navigate = useNavigate();
     const [searchParams, setSearchParams] = useSearchParams();
+
+    const location = useLocation();
+
+    //reset search input when redirect to jobs page
+    useEffect(() => {
+        if (location.pathname === '/jobs') {
+            setQuery('');
+            setSuggestions([]);
+        }
+    }, [location]);
+    
 
     const fetchSuggestions = useCallback(
         debounce((query: string) => {
@@ -37,9 +48,9 @@ function Search() {
         fetchSuggestions(value);
         if (value.length >= 3) {
             setSearchParams({ query: value });
-            navigate(`/search?query=${value}`);
+            navigate(`/jobs/search?query=${value}`);
         } else if (value.length === 0) {
-            navigate('/');
+            navigate('/jobs');
         }
     };
 
@@ -47,7 +58,7 @@ function Search() {
         setQuery(searchWord);
         setSuggestions([]);
         setSearchParams({ query: searchWord });
-        navigate(`/search?query=${searchWord}`);
+        navigate(`/jobs/search?query=${searchWord}`);
     };
 
     return (

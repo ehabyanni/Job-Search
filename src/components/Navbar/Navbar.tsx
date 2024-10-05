@@ -9,7 +9,7 @@ function Navbar() {
       <h1>JobsNow</h1>
       <ul>
         <li>
-          <NavLink to="/" className={({ isActive }) => {
+          <NavLink to="/jobs" className={({ isActive }) => {
             return isActive ? "active-link" : "";
           }}>Home</NavLink>
         </li>
