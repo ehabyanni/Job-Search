@@ -8,8 +8,8 @@ import Navbar from './components/Navbar/Navbar';
 import History from './pages/History';
 import Home from './pages/Home/Home';
 import SearchInput from './components/SearchInput/SearchInput';
-import Search from './pages/Search';
 import JobDetails from './pages/JobDetails';
+import Search from './pages/Search';
 
 function App() {
   return (

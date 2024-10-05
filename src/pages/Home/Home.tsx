@@ -48,21 +48,6 @@ function Home() {
       </div>
     </div>
   );
-
-  // return (
-  //   <div>
-  //     <div id="jobCardOuterContainer">
-  //       <div id="jobCardHeader">
-  //         <h1>All Jobs ({jobs?.length})</h1>
-  //       </div>
-  //       <div id="jobCardContainer">
-  //         {jobs.map((job: any) => (
-  //           <JobCard key={job.id} job={job} />
-  //         ))}
-  //       </div>
-  //     </div>
-  //   </div>
-  // );
 }
 
 export default Home;

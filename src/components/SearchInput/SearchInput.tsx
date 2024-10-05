@@ -6,11 +6,15 @@ import { jobDetailsType } from '../../models/jobDetailsType';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import './style.scss';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 
 function Search() {
     const [query, setQuery] = useState('');
     const [suggestions, setSuggestions] = useState<any[]>([]);
     const jobs = useSelector((state: any) => state.jobs.jobs);
+
+    const navigate = useNavigate();
+    const [searchParams, setSearchParams] = useSearchParams();
 
     const fetchSuggestions = useCallback(
         debounce((query: string) => {
@@ -20,6 +24,7 @@ function Search() {
                 );
                 setSuggestions(filteredJobs);
             } else {
+                setQuery('');
                 setSuggestions([]);
             }
         }, 300),
@@ -30,12 +35,20 @@ function Search() {
         const value = e.target.value;
         setQuery(value);
         fetchSuggestions(value);
+        if (value.length >= 3) {
+            setSearchParams({ query: value });
+            navigate(`/search?query=${value}`);
+        } else if (value.length === 0) {
+            navigate('/');
+        }
     };
 
-    // const handleClear = () => {
-    //     setQuery('');
-    //     setSuggestions([]);
-    // };
+    const handleSuggestionClick = (searchWord: string) => {
+        setQuery(searchWord);
+        setSuggestions([]);
+        setSearchParams({ query: searchWord });
+        navigate(`/search?query=${searchWord}`);
+    };
 
     return (
         <div id='search'>
@@ -48,11 +61,10 @@ function Search() {
                 />
                 <FontAwesomeIcon icon={faSearch} style={{ marginRight: '20px', color: 'gray' }} />
             </div>
-            {/* <button onClick={handleClear}>Clear</button> */}
             {suggestions.length > 0 && (
                 <div id='suggestions'>
                     {suggestions.map((job) => (
-                        <div key={job.id} className='suggestion-item'>
+                        <div key={job.id} className='suggestion-item' onClick={() => handleSuggestionClick(job.attributes.title)}>
                             {job.attributes.title}
                         </div>
                     ))}
