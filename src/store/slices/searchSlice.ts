@@ -27,6 +27,7 @@ const searchSlice = createSlice({
   reducers: {
     resetJobSearchResults: (state) => {
       state.jobSearchResults = [];
+      state.status = "idle";
     },
   },
   extraReducers: (builder) => {
