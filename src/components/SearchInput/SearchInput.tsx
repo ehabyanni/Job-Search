@@ -42,6 +42,27 @@ function Search() {
         [jobs]
     );
 
+    // const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    //     const value = e.target.value;
+    //     setQuery(value);
+    //     fetchSuggestions(value);
+    //     if (value.length >= 3) {
+    //         setSearchParams({ query: value });
+    //         navigate(`/jobs/search?query=${value}`);
+    //     } else if (value.length === 0) {
+    //         navigate('/jobs');
+    //     }
+    // };
+
+    // Set query from URL parameter on mount
+    useEffect(() => {
+        const queryParam = searchParams.get('query');
+        if (queryParam) {
+            setQuery(queryParam);
+            fetchSuggestions(queryParam);
+        }
+    }, [searchParams]);
+
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value;
         setQuery(value);
@@ -49,6 +70,7 @@ function Search() {
         if (value.length >= 3) {
             setSearchParams({ query: value });
             navigate(`/jobs/search?query=${value}`);
+            saveQueryToLocalStorage(value);
         } else if (value.length === 0) {
             navigate('/jobs');
         }
@@ -59,6 +81,15 @@ function Search() {
         setSuggestions([]);
         setSearchParams({ query: searchWord });
         navigate(`/jobs/search?query=${searchWord}`);
+        saveQueryToLocalStorage(searchWord);
+    };
+
+    const saveQueryToLocalStorage = (query: string) => {
+        let queries = JSON.parse(localStorage.getItem('previousSearches') || '[]');
+        if (!queries.includes(query)) {
+            queries.push(query);
+            localStorage.setItem('previousSearches', JSON.stringify(queries));
+        }
     };
 
     return (

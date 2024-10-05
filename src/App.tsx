@@ -1,7 +1,7 @@
 'use client'
 import './App.scss';
 
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes, useNavigate } from 'react-router-dom';
 import { Fragment } from 'react/jsx-runtime';
 
 import Navbar from './components/Navbar/Navbar';
@@ -17,12 +17,13 @@ function App() {
       <Navbar />
       <SearchInput />
       <Routes>
-            <Route path="/jobs" element={<Home />} />
-            <Route path="/jobs/search" element={<Search />} />
-            <Route path="/history" element={<History />} />
-            <Route path="/jobs/:id" element={<JobDetails />} />
-            {/* <Route path="*" element={<NoMatch />} /> */}
-         </Routes>
+        <Route path="/" element={<Navigate to="/jobs" />} />
+        <Route path="/jobs" element={<Home />} />
+        <Route path="/jobs/search" element={<Search />} />
+        <Route path="/history" element={<History />} />
+        <Route path="/jobs/:id" element={<JobDetails />} />
+        {/* <Route path="*" element={<NoMatch />} /> */}
+      </Routes>
     </Fragment>
   );
 }

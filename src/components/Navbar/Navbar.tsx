@@ -14,7 +14,7 @@ function Navbar() {
           }}>Home</NavLink>
         </li>
         <li>
-          <NavLink to="/search">Search</NavLink>
+          <NavLink to="/jobs/search">Search</NavLink>
         </li>
         <li>
           <NavLink to="/history">History</NavLink>
