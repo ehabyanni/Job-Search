@@ -1,0 +1,25 @@
+#jobCardOuterContainer {
+  width: 100%;
+  margin: auto;
+  #jobCardHeader {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 20px;
+    width: 85%;
+    margin: auto;
+    h1 {
+      margin: 0;
+      font-size: 32px;
+      font-weight: bold;
+    }
+  }
+  #jobCardContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+    padding: 20px;
+    width: 85%;
+    margin: auto;
+  }
+}

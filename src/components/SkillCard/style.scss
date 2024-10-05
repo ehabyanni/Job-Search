@@ -1,0 +1,59 @@
+#skillCardOuterContainer {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  height: 100%;
+  background-color: white;
+  border-radius: 5px;
+  padding: 20px;
+  #skillCardHeader {
+    display: flex;
+    flex-direction: row;
+    align-items: left;
+    h1 {
+      margin-bottom: 10px;
+      font-size: 20px;
+      font-weight: normal;
+    }
+  }
+  #skillCardContainer {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-gap: 20px;
+    width: 100%;
+    #skillCard {
+      background-color: #f0f0f0;
+      color: #333;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: left;
+      border-bottom: 3px solid #f2f2f2;
+      border-radius: 5px;
+      box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.1);
+      h1{
+        margin: 0px 0px 10px 0px;
+        font-size: 18px;
+        font-weight: bold;
+        text-decoration: underline;
+      }
+      h3{
+        margin: 0;
+        font-size: 16px;
+        font-weight: normal;
+      }
+      #skillsInfo{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: left;
+        h3{
+          margin: 0;
+          font-size: 16px;
+          font-weight: normal;
+        }
+      }
+    }
+  }
+}
