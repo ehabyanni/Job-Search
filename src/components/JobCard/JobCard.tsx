@@ -2,8 +2,9 @@
 import { forwardRef, Ref } from 'react';
 import './style.scss';
 import { useNavigate } from 'react-router-dom';
+import { jobDetailsType } from '../../models/jobDetailsType';
 
-const JobCard = forwardRef(({ job }: { job: any }, ref : Ref<HTMLDivElement>) => {
+const JobCard = forwardRef(({ job }: { job: jobDetailsType }, ref : Ref<HTMLDivElement>) => {
   const navigate = useNavigate();
 
   return (
