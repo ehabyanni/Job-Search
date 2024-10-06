@@ -7,6 +7,7 @@ import { fetchSkillDetails } from '../../store/slices/skillDetailsSlice';
 import { jobDetailsType } from '../../models/jobDetailsType';
 import RelatedJobCard from '../../components/RelatedJobCard/RelatedJobCard';
 import { fetchJobs } from '../../store/slices/jobSlice';
+import RelatedJobs from '../../components/RelatedJobs/RelatedJobs';
 
 function SkillDetails() {
   const { id } = useParams();
@@ -89,7 +90,7 @@ function SkillDetails() {
               </div>
             </div>
           </div>
-          {/* <RelatedJobs skillsIDs={jobDetails?.relationships?.skills} /> */}
+          <RelatedJobs skillsIDs={skillDetails?.relationships?.skills} skillType={true} />
         </div>
       </div>
     </div >
