@@ -4,12 +4,12 @@ import './style.scss';
 import { useNavigate } from 'react-router-dom';
 import { jobDetailsType } from '../../models/jobDetailsType';
 
-const JobCard = forwardRef(({ job }: { job: jobDetailsType }, ref : Ref<HTMLDivElement>) => {
+const JobCard = forwardRef(({ job }: { job: jobDetailsType }, ref: Ref<HTMLDivElement>) => {
   const navigate = useNavigate();
 
   return (
     <div ref={ref} id="jobCard" key={job.id}>
-      <h1>{job.attributes.title}</h1>
+      <h1 onClick={() => navigate(`/jobs/${job.id}`)}>{job.attributes.title}</h1>
       <div id="skills">
         <h3>Related Skills:</h3>
         <div id="skillsItems">
