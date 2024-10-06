@@ -9,6 +9,7 @@ import Home from './pages/Home/Home';
 import JobDetails from './pages/JobDetails/JobDetails';
 import Search from './pages/Search/Search';
 import SkillDetails from './pages/SkillDetails/SkillDetails';
+import NoMatch from './pages/NoMatch';
 
 function App() {
   return (
@@ -21,7 +22,7 @@ function App() {
           <Route path="/history" element={<History />} />
           <Route path="/jobs/:id" element={<JobDetails />} />
           <Route path="/skill/:id" element={<SkillDetails />} />
-          {/* <Route path="*" element={<NoMatch />} /> */}
+          <Route path="*" element={<NoMatch />} />
         </Routes>
       </Layout>
     </Fragment>

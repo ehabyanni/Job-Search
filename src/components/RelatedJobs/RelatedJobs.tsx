@@ -1,3 +1,4 @@
+'use client';
 import './relatedJobs.scss';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';

@@ -13,7 +13,7 @@ function SkillDetails() {
   const { id } = useParams();
 
   const dispatch: any = useDispatch();
-  const { skillDetails, status, error } = useSelector((state: any) => state.skillDetails);
+  const { skillDetails, status } = useSelector((state: any) => state.skillDetails);
 
   const jobs = useSelector((state: any) => state.jobs.jobs);
   const [relatedJobs, setRelatedJobs] = useState<jobDetailsType[]>([]);

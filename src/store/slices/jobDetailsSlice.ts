@@ -1,3 +1,4 @@
+'use client';
 import { createSlice, createAsyncThunk, SerializedError } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { jobDetailsType } from '../../models/jobDetailsType';

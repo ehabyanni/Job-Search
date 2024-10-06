@@ -1,6 +1,6 @@
-import { createSlice, createAsyncThunk, SerializedError } from '@reduxjs/toolkit';
+'use client';
+import { createAsyncThunk, createSlice, SerializedError } from '@reduxjs/toolkit';
 import axios from 'axios';
-import { jobDetailsType } from '../../models/jobDetailsType';
 import { SkillDetailsType } from '../../models/skillDetailsType';
 
 // Fetch specific Skill details by ID

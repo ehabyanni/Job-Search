@@ -1,7 +1,7 @@
 'use client'
-import React from 'react';
 import './style.scss';
-import { Link, NavLink, Route } from 'react-router-dom';
+import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 function Navbar() {
   return (
