@@ -34,9 +34,11 @@ function Home() {
     <div>
       <div id="jobCardOuterContainer">
         <div id="jobCardHeader">
-          <h1>All Jobs ({jobs?.length})</h1>
+          {status === 'succeeded' && <h1>All Jobs ({jobs?.length})</h1>}
         </div>
         <div id="jobCardContainer">
+          {status === 'loading' && <p>Loading jobs...</p>}
+          {status === 'failed' && <p>Failed to load jobs</p>}
           {jobs.map((job: any, index: number) => {
             if (jobs.length === index + 1) {
               return <JobCard ref={lastJobElementRef} key={job.id + job.attributes.title} job={job} />;
