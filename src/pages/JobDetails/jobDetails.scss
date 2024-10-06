@@ -1,7 +1,7 @@
 #container {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: top;
   width: 85%;
   margin: auto;
   padding : 50px 0px;
@@ -60,6 +60,6 @@
   #relatedJobs {
     width: 30%;
     background-color: wheat;
-    display: none;
+    // display: none;
   }
 }

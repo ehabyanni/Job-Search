@@ -5,13 +5,6 @@ export type jobDetailsType = {
         title: string;
     };
     relationships: {
-        skills: {
-            id: string;
-            title: string;
-            desc: string;
-            type: string;
-            importance: number;
-            level: number;
-        };
+        skills: { id: string }[];
     };
 }
