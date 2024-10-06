@@ -25,7 +25,7 @@ function Search() {
 
     useEffect(() => {
         // Fetch search results
-        if (query != '') {
+        if (query !== '') {
             dispatch(fetchSearchResults(query));
         } else {
             // Reset the job search results in the Redux store
@@ -38,10 +38,10 @@ function Search() {
         <div id="searchContainer">
             <div id="jobCardOuterContainer">
                 <div id="jobCardHeader">
-                    {query != '' && <h1 style={{ fontSize: "18px" }}>"{query}"{" jobs "}{jobs.length > 0 ? `(${jobs.length})` : ''}</h1>}                </div>
+                    {query !== '' && <h1 style={{ fontSize: "18px" }}>"{query}"{" jobs "}{jobs.length > 0 ? `(${jobs.length})` : ''}</h1>}                </div>
                 <div id="jobCardContainer">
                     {status === 'loading' && <p>Loading search results...</p>}
-                    {jobs.length === 0 && status === 'succeeded' && query != '' && <p>No results found for "{query}".</p>}
+                    {jobs.length === 0 && status === 'succeeded' && query !== '' && <p>No results found for "{query}".</p>}
                     {jobs.length === 0 && status === 'idle' && <p>Start new search...</p>}
                     {jobs.map((job: jobDetailsType) => (
                         <JobCard key={job.id} job={job} />
