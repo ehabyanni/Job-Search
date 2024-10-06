@@ -1,0 +1,80 @@
+#container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: auto;
+  padding: 50px 0px;
+  #container-fluid {
+    display: flex;
+    flex-direction: column;
+    width: 85%;
+    margin: auto;
+    #jobHeader {
+      padding: 0px 10px 30px 0px;
+      h1 {
+        font-size: x-large;
+        font-weight: bold;
+      }
+    }
+    #jobDetailsContainer {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      #jobDetails {
+        width: 75%;
+        #jobContainer {
+          display: flex;
+          flex-direction: column;
+          #skillCardOuterContainer {
+            display: flex;
+            flex-direction: column;
+            width: 90%;
+            height: 100%;
+            background-color: white;
+            border-radius: 5px;
+            padding: 20px;
+            #skillCardHeader {
+              display: flex;
+              flex-direction: column;
+              align-items: left;
+              margin-bottom: 20px;
+              #headerName {
+                font-size: 20px;
+                font-weight: bold;
+              }
+              #skillsInfo {
+                display: flex;
+                flex-direction: row;
+                gap: 20%;
+                align-items: left;
+                h3 {
+                  margin: 0;
+                  font-size: 16px;
+                  font-weight: normal;
+                }
+              }
+            }
+            #skillCardContainer {
+              display: flex;
+              flex-direction: column;
+              gap: 20px;
+              width: 100%;
+              #skillCard {
+                background-color: #f0f0f0;
+                color: #333;
+                padding: 20px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: left;
+                border-bottom: 3px solid #f2f2f2;
+                border-radius: 5px;
+                box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.1);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
