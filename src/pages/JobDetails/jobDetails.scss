@@ -1,0 +1,64 @@
+#container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 85%;
+  margin: auto;
+  padding : 50px 0px;
+  #jobDetails {
+    width: 70%;
+    #jobContainer {
+      display: flex;
+      flex-direction: column;
+      #jobHeader {
+        padding: 0px 0px 50px 0px;
+        h1 {
+          font-size: xx-large;
+          font-weight: normal;
+        }
+      }
+      #skillCardOuterContainer {
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+        height: 100%;
+        background-color: white;
+        border-radius: 5px;
+        padding: 20px;
+        #skillCardHeader {
+          display: flex;
+          flex-direction: row;
+          align-items: left;
+          h1 {
+            margin-bottom: 10px;
+            font-size: 20px;
+            font-weight: normal;
+          }
+        }
+        #skillCardContainer {
+          display: grid;
+          grid-template-rows: 1fr 1fr 1fr;
+          grid-gap: 20px;
+          width: 100%;
+          #skillCard {
+            background-color: #f0f0f0;
+            color: #333;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: left;
+            border-bottom: 3px solid #f2f2f2;
+            border-radius: 5px;
+            box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.1);
+          }
+        }
+      }
+    }
+  }
+  #relatedJobs {
+    width: 30%;
+    background-color: wheat;
+    display: none;
+  }
+}
