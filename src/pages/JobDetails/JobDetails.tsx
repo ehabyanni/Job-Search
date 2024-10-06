@@ -48,7 +48,7 @@ function JobDetails() {
   }
 
   if (status === 'failed') {
-    return <p>Error: {error}</p>;
+    return <p>Failed to load job details. Please try again.</p>;
   }
 
   return (

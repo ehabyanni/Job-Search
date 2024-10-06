@@ -33,6 +33,8 @@ function Search() {
 
     }, [dispatch, query, pathname]);
 
+    if(status === 'failed') return <p>Failed to load search results. Please try again.</p>;
+
     return (
         <div id='container'>
             <div id="container-fluid">

@@ -51,7 +51,7 @@ function SkillDetails() {
   }
 
   if (status === 'failed') {
-    return <div>Error: {error}</div>;
+    return <div>Failed to load skill details. Please try again.</div>;
   }
 
   return (
