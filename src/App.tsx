@@ -1,5 +1,4 @@
 'use client'
-import './App.scss';
 
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { Fragment } from 'react/jsx-runtime';
