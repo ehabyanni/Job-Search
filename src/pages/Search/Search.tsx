@@ -1,5 +1,4 @@
 'use client'
-import '../Home/home.scss';
 import './search.scss';
 
 import { useEffect, useState } from 'react';
@@ -35,20 +34,29 @@ function Search() {
     }, [dispatch, query, pathname]);
 
     return (
-        <div id="searchContainer">
-            <div id="jobCardOuterContainer">
-                <div id="jobCardHeader">
-                    {query !== '' && <h1 style={{ fontSize: "18px" }}>"{query}"{" jobs "}{jobs.length > 0 ? `(${jobs.length})` : ''}</h1>}                </div>
-                <div id="jobCardContainer">
-                    {status === 'loading' && <p>Loading search results...</p>}
-                    {jobs.length === 0 && status === 'succeeded' && query !== '' && <p>No results found for "{query}".</p>}
-                    {jobs.length === 0 && status === 'idle' && <p>Start new search...</p>}
-                    {jobs.map((job: jobDetailsType) => (
-                        <JobCard key={job.id} job={job} />
-                    ))}
+        <div id='container'>
+            <div id="container-fluid">
+                <div id="jobHeader">
+                    {query !== '' &&
+                        <h1>
+                            "{query}"{" jobs "}{jobs.length > 0 ? `(${jobs.length})` : ''}
+                        </h1>
+                    }
+                </div>
+                <div id="jobCardOuter">
+                    <div id="jobCardOuterContainer">
+                        <div id="jobCardContainer">
+                            {status === 'loading' && <p>Loading search results...</p>}
+                            {jobs.length === 0 && status === 'succeeded' && query !== '' && <p>No results found for "{query}".</p>}
+                            {jobs.length === 0 && status === 'idle' && <p>Start new search...</p>}
+                            {jobs.map((job: jobDetailsType) => (
+                                <JobCard key={job.id} job={job} />
+                            ))}
+                        </div>
+                    </div>
+                    <Sidebar />
                 </div>
             </div>
-            <Sidebar />
         </div>
     );
 };
