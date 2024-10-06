@@ -13,7 +13,7 @@ const JobCard = forwardRef(({ job }: { job: any }, ref : Ref<HTMLDivElement>) =>
         <h3>Related Skills:</h3>
         <div id="skillsItems">
           {job.relationships.skills.map((skill: any) => (
-            <p key={skill.id}>{skill.id}</p>
+            <p key={skill.id} onClick={() => navigate(`/skill/${skill.id}`)}>{skill.id}</p>
           ))}
         </div>
         <p
