@@ -25,7 +25,7 @@ function Search() {
             setSuggestions([]);
         }
     }, [location]);
-    
+
 
     const fetchSuggestions = useCallback(
         debounce((query: string) => {
@@ -33,7 +33,20 @@ function Search() {
                 const filteredJobs = jobs.filter((job: jobDetailsType) =>
                     job.attributes.title.toLowerCase().includes(query.toLowerCase())
                 );
-                setSuggestions(filteredJobs);
+
+                // Remove redundant jobs based on title
+                const uniqueJobs = [];
+                const titlesSet = new Set();
+
+                for (const job of filteredJobs) {
+                    const title = job.attributes.title.toLowerCase(); // Normalize case
+                    if (!titlesSet.has(title)) {
+                        uniqueJobs.push(job); // Add job if title is not already encountered
+                        titlesSet.add(title); // Track the title in the Set
+                    }
+                }
+
+                setSuggestions(uniqueJobs);
             } else {
                 setQuery('');
                 setSuggestions([]);
@@ -42,18 +55,6 @@ function Search() {
         [jobs]
     );
 
-    // const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    //     const value = e.target.value;
-    //     setQuery(value);
-    //     fetchSuggestions(value);
-    //     if (value.length >= 3) {
-    //         setSearchParams({ query: value });
-    //         navigate(`/jobs/search?query=${value}`);
-    //     } else if (value.length === 0) {
-    //         navigate('/jobs');
-    //     }
-    // };
-
     // Set query from URL parameter on mount
     useEffect(() => {
         const queryParam = searchParams.get('query');
@@ -61,7 +62,7 @@ function Search() {
             setQuery(queryParam);
             fetchSuggestions(queryParam);
         }
-    }, [searchParams]);
+    }, [searchParams , fetchSuggestions]);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value;
