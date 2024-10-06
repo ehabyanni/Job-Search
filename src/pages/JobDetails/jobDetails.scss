@@ -45,9 +45,9 @@
               }
             }
             #skillCardContainer {
-              display: grid;
-              grid-template-rows: 1fr 1fr 1fr;
-              grid-gap: 20px;
+              display: flex;
+              flex-direction: column;
+              gap: 20px;
               width: 100%;
               #skillCard {
                 background-color: #f0f0f0;
@@ -68,79 +68,3 @@
     }
   }
 }
-
-// #container {
-//   display: flex;
-//   flex-direction: column;
-//   //   align-items: top;
-//   width: 100%;
-//   margin: auto;
-//   //   padding : 50px 0px;
-//   background-color: aqua;
-//   #jobHeader {
-//     padding: 0px 0px 50px 0px;
-//     background-color: #333;
-//     width:
-//     h1 {
-//       font-size: x-large;
-//       font-weight: bold;
-//     }
-//   }
-//   #jobDetailsContainer {
-//     display: flex;
-//     flex-direction: row;
-//     width: 100%;
-//     #jobDetails {
-//       background-color: blue;
-//       width: 75%;
-//       #jobContainer {
-//         display: flex;
-//         flex-direction: column;
-//         #skillCardOuterContainer {
-//           display: flex;
-//           flex-direction: column;
-//           width: 90%;
-//           height: 100%;
-//           background-color: white;
-//           border-radius: 5px;
-//           padding: 20px;
-//           #skillCardHeader {
-//             display: flex;
-//             flex-direction: row;
-//             align-items: left;
-//             h1 {
-//               margin-bottom: 10px;
-//               font-size: 20px;
-//               font-weight: bold;
-//               padding-bottom: 20px;
-//             }
-//           }
-//           #skillCardContainer {
-//             display: grid;
-//             grid-template-rows: 1fr 1fr 1fr;
-//             grid-gap: 20px;
-//             width: 100%;
-//             #skillCard {
-//               background-color: #f0f0f0;
-//               color: #333;
-//               padding: 20px;
-//               display: flex;
-//               flex-direction: column;
-//               justify-content: space-between;
-//               align-items: left;
-//               border-bottom: 3px solid #f2f2f2;
-//               border-radius: 5px;
-//               box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.1);
-//             }
-//           }
-//         }
-//       }
-//     }
-//   }
-
-//   //   #relatedJobs {
-//   //     width: 25%;
-//   //     // background-color: wheat;
-//   //     // display: none;
-//   //   }
-// }
