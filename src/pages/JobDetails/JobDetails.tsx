@@ -9,16 +9,17 @@ import getSkillDetails from '../../components/functions/getSkillDetails';
 import SkillCard from '../../components/SkillCard/SkillCard';
 import { SkillDetailsType } from '../../models/skillDetailsType';
 import { fetchJobDetails } from '../../store/slices/jobDetailsSlice';
+import RelatedJobs from '../../components/RelatedJobs/RelatedJobs';
 
 function JobDetails() {
   const { id } = useParams();
-  
+
   const dispatch: any = useDispatch();
   const { jobDetails, status, error } = useSelector((state: any) => state.jobDetails);
 
 
   const [skillsDetails, setSkillsDetails] = useState<SkillDetailsType[]>([]);
-
+  
   useEffect(() => {
     if (id) {
       dispatch(fetchJobDetails(id));
@@ -52,29 +53,31 @@ function JobDetails() {
 
   return (
     <div id="container">
-      <div id='jobDetails'>
-        <div id="jobContainer">
-          <div id="jobHeader">
-            <h1>{jobDetails?.attributes?.title}</h1>
-          </div>
-          <div id="skillCardOuterContainer">
-            <div id="skillCardHeader">
-              <h1>Related Skills:</h1>
-            </div>
-            <div id="skillCardContainer">
-              {
-                skillsDetails?.map((skill: SkillDetailsType, index: number) => {
-                  return (
-                    <SkillCard key={skill.id + index} skill={skill} />
-                  )
-                })
-              }
-            </div>
-          </div>
+      <div id="container-fluid">
+        <div id="jobHeader">
+          <h1>{jobDetails?.attributes?.title}</h1>
         </div>
-      </div>
-      <div id="relatedJobs">
-        Related Jobs
+        <div id="jobDetailsContainer">
+          <div id='jobDetails'>
+            <div id="jobContainer">
+              <div id="skillCardOuterContainer">
+                <div id="skillCardHeader">
+                  <h1>Related Skills:</h1>
+                </div>
+                <div id="skillCardContainer">
+                  {
+                    skillsDetails?.map((skill: SkillDetailsType, index: number) => {
+                      return (
+                        <SkillCard key={skill.id + index} skill={skill} />
+                      )
+                    })
+                  }
+                </div>
+              </div>
+            </div>
+          </div>
+          <RelatedJobs skillsIDs={jobDetails?.relationships?.skills} />
+        </div>
       </div>
     </div>
 
