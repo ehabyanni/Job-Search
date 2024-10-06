@@ -1,0 +1,26 @@
+#relatedJobs {
+  width: 25%;
+  padding: 0px;
+  #relatedJobsContainer {
+    background-color: #d9d9d9;
+    padding: 10px;
+    border-radius: 5px;
+    height: fit-content;
+    h1 {
+      margin: 0;
+      font-size: 18px;
+      font-weight: bold;
+    }
+    ul {
+      margin: 0;
+      padding: 20px;
+      max-height: 350px;
+      overflow-y: auto;
+      li {
+        margin-bottom: 5px;
+        text-decoration: underline;
+        margin-bottom: 10px;
+      }
+    }
+  }
+}
