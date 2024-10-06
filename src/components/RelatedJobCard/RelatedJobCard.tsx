@@ -1,14 +1,15 @@
 'use client'
 import './style.scss';
-import { useNavigate } from 'react-router-dom';
 import { jobDetailsType } from '../../models/jobDetailsType';
+import { useNavigate } from 'react-router-dom';
 
 const RelatedJobCard = ({ job }: { job: jobDetailsType }) => {
+
   const navigate = useNavigate();
 
   return (
     <div id="skillCard">
-      <h1>{job?.attributes?.title}</h1>
+      <h1 onClick={() => navigate(`/jobs/${job.id}`)}>{job?.attributes?.title}</h1>
       {/* <h3>{skill?.attributes?.}</h3> */}
       {/* 
         <div id="skillsInfo">
