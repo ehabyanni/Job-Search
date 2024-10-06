@@ -1,17 +1,29 @@
 import './relatedJobs.scss';
 import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { fetchJobs } from '../../store/slices/jobSlice';
 
 interface skillsIDsProps {
     skillsIDs: {id : string}[];
 }
 
 function RelatedJobs({ skillsIDs }: skillsIDsProps) {
-    
+
     const [relatedJobs, setRelatedJobs] = useState<any[]>([]);
     const navigate = useNavigate();
+    const dispatch : any = useDispatch();
+
+    // Get jobs from Redux store
     const jobs = useSelector((state: any) => state.jobs.jobs);
+
+
+    // Ensure jobs are fetched on page load if not already fetched
+    useEffect(() => {
+        if (jobs.length === 0) {
+            dispatch(fetchJobs(0));  // Fetch jobs from JobsSlice if the state is empty
+        }
+    }, [dispatch, jobs.length]);
 
 
     useEffect(() => {
