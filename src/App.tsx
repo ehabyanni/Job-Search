@@ -8,7 +8,7 @@ import Navbar from './components/Navbar/Navbar';
 import History from './pages/History';
 import Home from './pages/Home/Home';
 import SearchInput from './components/SearchInput/SearchInput';
-import JobDetails from './pages/JobDetails';
+import JobDetails from './pages/JobDetails/JobDetails';
 import Search from './pages/Search/Search';
 
 function App() {
