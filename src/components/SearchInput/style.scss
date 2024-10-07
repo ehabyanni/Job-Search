@@ -8,6 +8,10 @@
   #inputSearch {
     border-radius: 5px;
     border: 1px solid #ccc;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
     input {
       padding: 20px;
       width: 500px;
@@ -40,5 +44,19 @@
         background-color: #f2f2f2;
       }
     }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  #search {
+    #inputSearch {
+      width: 80%;
+      input {
+        width: 100%;
+      }
+    }
+  }
+  #suggestions {
+    width: 80% !important;
   }
 }

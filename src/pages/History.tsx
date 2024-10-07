@@ -3,8 +3,8 @@ import React from 'react'
 
 function History() {
   return (
-    <div>
-      Histry Works
+    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+      <h3>History Works</h3>
     </div>
   )
 }

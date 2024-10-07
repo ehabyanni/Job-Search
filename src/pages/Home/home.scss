@@ -23,3 +23,11 @@
     margin: auto;
   }
 }
+
+@media screen and (max-width: 500px) {
+  #jobCardOuterContainer {
+    #jobCardContainer{
+      grid-template-columns: 1fr;
+    }
+  }
+}

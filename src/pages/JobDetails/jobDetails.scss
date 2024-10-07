@@ -54,7 +54,7 @@
                 color: #333;
                 padding: 20px;
                 display: flex;
-                flex-direction: column;
+                flex-direction: row;
                 justify-content: space-between;
                 align-items: left;
                 border-bottom: 3px solid #f2f2f2;
@@ -63,6 +63,29 @@
               }
             }
           }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  #container {
+    #container-fluid {
+      #jobDetailsContainer {
+        flex-direction: column !important;
+        #jobDetails {
+          width: 100% !important;
+          // #jobContainer{
+          //   #skillCardOuterContainer{
+          //     #skillCardContainer{
+          //       #skillCard{
+          //         background-color: aqua !important;
+          //         flex-wrap: wrap !important;
+          //       }
+          //     }
+          //   }
+          // }
         }
       }
     }
