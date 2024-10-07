@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { fetchJobs } from '../../store/slices/jobSlice';
+import { SkillDetailsType } from '../../models/skillDetailsType';
 
 interface skillsIDsProps {
     skillsIDs: { id: string }[];
@@ -14,7 +15,7 @@ function RelatedJobs({ skillsIDs, skillType = false }: skillsIDsProps) {
 
     const [relatedJobs, setRelatedJobs] = useState<any[]>([]);
     const navigate = useNavigate();
-    const dispatch : any = useDispatch();
+    const dispatch: any = useDispatch();
 
     // Get jobs from Redux store
     const jobs = useSelector((state: any) => state.jobs.jobs);
@@ -28,6 +29,7 @@ function RelatedJobs({ skillsIDs, skillType = false }: skillsIDsProps) {
     }, [dispatch, jobs.length]);
 
 
+
     useEffect(() => {
         if (skillsIDs?.length > 0 && jobs?.length > 0) {
             const matchedJobs = jobs.filter((job: any) =>
@@ -35,7 +37,25 @@ function RelatedJobs({ skillsIDs, skillType = false }: skillsIDsProps) {
             );
             setRelatedJobs(matchedJobs);
         }
-    }, [skillsIDs , jobs]);
+    }, [skillsIDs, jobs]);
+
+    const [relatedSkills, setRelatedSkills] = useState<SkillDetailsType[]>([]);
+
+    useEffect(() => {
+        if (skillType && skillsIDs?.length > 0) {
+            for (const skill of skillsIDs) {
+                const existingSkills: SkillDetailsType[] = JSON.parse(localStorage.getItem('skills') || '[]');
+                const skillFound = existingSkills?.find((existingSkill: SkillDetailsType) => existingSkill.id === skill.id);
+                setRelatedSkills((prevSkills) => {
+                    const newSkills = [...prevSkills];
+                    if (skillFound && !newSkills.some((s) => s.id === skillFound.id)) {
+                        newSkills.push(skillFound);
+                    }
+                    return newSkills;
+                });
+            }
+        }
+    }, [skillsIDs, skillType]);
 
     const handleQueryClick = (id: string) => {
         skillType ? navigate(`/skill/${id}`) : navigate(`/jobs/${id}`);
@@ -58,10 +78,10 @@ function RelatedJobs({ skillsIDs, skillType = false }: skillsIDsProps) {
                         </ul>
                     ) : (
                         <ul>
-                            {skillsIDs?.map((skill, index) => (
+                            {relatedSkills?.map((skill, index) => (
                                 <div key={index} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                                     <li key={index} onClick={() => handleQueryClick(skill.id)} style={{ cursor: 'pointer' }}>
-                                        {skill.id}
+                                        {skill.attributes.name}
                                     </li>
                                 </div>
                             ))}
