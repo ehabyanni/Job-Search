@@ -8,17 +8,17 @@ function SkillCard({ skill }: { skill: SkillDetailsType }) {
 
     return (
         <div id="skillCard">
-            <h1 onClick={() => navigate(`/skill/${skill.id}`)}>{skill?.attributes?.name}</h1>
+            <h1 data-testid='name' onClick={() => navigate(`/skill/${skill.id}`)}>{skill?.attributes?.name}</h1>
             {/* <h3>{skill?.attributes?.}</h3> */}
             <div id="skillsInfo">
                 <div id="skillType">
-                    <p><b>Type:</b> {skill?.attributes?.type}</p>
+                    <p data-testid='type'><b>Type:</b> {skill?.attributes?.type}</p>
                 </div>
                 <div id="skillImportance">
-                    <p><b>Importance:</b> {skill?.attributes?.importance}</p>
+                    <p data-testid='importance'><b>Importance:</b> {skill?.attributes?.importance}</p>
                 </div>
                 <div id="skillLevel">
-                    <p><b>Level:</b> {skill?.attributes?.level}</p>
+                    <p data-testid='level'><b>Level:</b> {skill?.attributes?.level}</p>
                 </div>
             </div>
         </div>
