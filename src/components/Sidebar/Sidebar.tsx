@@ -35,7 +35,7 @@ function Sidebar() {
                             <li key={index} onClick={() => handleQueryClick(query)} style={{ cursor: 'pointer' }}>
                                 {query}
                             </li>
-                            <FontAwesomeIcon icon={faX} style={{ cursor: 'pointer', fontSize: '10px' , color: 'gray' }} onClick={() => removeSearchItem(index)} />
+                            <FontAwesomeIcon data-testid='clearQuery' icon={faX} style={{ cursor: 'pointer', fontSize: '10px' , color: 'gray' }} onClick={() => removeSearchItem(index)} />
                         </div>
                     ))}
                 </ul>
