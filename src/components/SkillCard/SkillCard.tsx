@@ -9,7 +9,6 @@ function SkillCard({ skill }: { skill: SkillDetailsType }) {
     return (
         <div id="skillCard">
             <h1 data-testid='name' onClick={() => navigate(`/skill/${skill.id}`)}>{skill?.attributes?.name}</h1>
-            {/* <h3>{skill?.attributes?.}</h3> */}
             <div id="skillsInfo">
                 <div id="skillType">
                     <p data-testid='type'><b>Type:</b> {skill?.attributes?.type}</p>
